@@ -21,6 +21,9 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def search
+  end
+
   # POST /items
   # POST /items.json
   def create
