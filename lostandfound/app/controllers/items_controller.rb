@@ -1,8 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-
-  # GET /items
-  # GET /items.json
+  
   def index
     @items = Item.all
   end
@@ -10,6 +7,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find(params[:id])
   end
 
   # GET /items/new
@@ -22,11 +20,18 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @items = Item.all.map {|i| [i.title, i.id]}
+  end
+
+  def do_search
+   @items = Item.where(title: params[:title])
+    render :index
   end
 
   # POST /items
   # POST /items.json
   def create
+    item_params = params.require(:item).permit(:title, :description, :type)
     @item = Item.new(item_params)
 
     respond_to do |format|
@@ -63,15 +68,5 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:title, :description, :type)
-    end
+  
 end

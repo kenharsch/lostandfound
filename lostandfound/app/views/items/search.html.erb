@@ -1,0 +1,12 @@
+<div class="col-md-offset-1 col-md-4">
+  <h1>Search<small>     <em>Find your lost items</em></small></h1>
+    <%= form_tag(do_search_items_path, method: "get", role: "form", class: "form") do %>
+     
+      <div class="form-group">
+        <label>Title</label>
+        <%= text_field_tag(:title, "", class: "form-control") %>
+      </div>
+      
+      <%= submit_tag("Search") %>
+    <% end %>
+</div>
