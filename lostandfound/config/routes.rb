@@ -1,4 +1,6 @@
 Lostandfound::Application.routes.draw do
+  resources :categories
+
   resources :items do
     collection do
       get 'search'

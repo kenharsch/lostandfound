@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    item_params = params.require(:item).permit(:title, :description, :type)
+    item_params = params.require(:item).permit(:title, :description, :category)
     @item = Item.new(item_params)
 
     respond_to do |format|

@@ -5,13 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-things = ["wallet", "purse", "keys", "sunglasses", "shirt", "shoes", "toy"]
+Category.destroy_all
+misc_item = ["wallet", "purse", "keys", "sunglasses"]
 colors = ["brown", "blue", "red", "green", "yellow", "purple"]
 adjective = ["Bad Mofo", "Beloved", "Grandma's", "Kid's", "Woman's"]
 owners = ["Dave Osborne", "Arthur Dent", "Raskolnikov", "Owen Meany", "Billy Pilgrim"]
 
+miscellaneous = Category.create(title: "miscellaneous", description: "Small Stuff, Keys, Wallets, etc.")
+
+
+
 20.times do 
-	title = colors.sample + " " + things.sample
+	title = colors.sample + " " + misc_item.sample
 	description = adjective.sample + " " + title
-	Item.create(title: title, description: description, owner: owners.sample)
+	Item.create(title: title, description: description, owner: owners.sample, category: miscellaneous)
 end
