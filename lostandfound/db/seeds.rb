@@ -12,7 +12,7 @@ adjective = ["Bad Mofo", "Beloved", "Grandma's", "Kid's", "Woman's"]
 owners = ["Dave Osborne", "Arthur Dent", "Raskolnikov", "Owen Meany", "Billy Pilgrim"]
 
 miscellaneous = Category.create(title: "miscellaneous", description: "Small Stuff, Keys, Wallets, etc.")
-
+clothing = Category.create(title: "clothing", description: "Shirts, Shoes, Hats")
 
 
 20.times do 
